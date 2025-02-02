@@ -30,7 +30,7 @@ def main():
                 return
         updatable.update(dt)
         for asteroid in asteroids:
-            if asteroid.collision(player):
+            if player.collision(asteroid):
                 print("Game over!")
                 sys.exit()
         screen.fill(COLOR_BLACK)
