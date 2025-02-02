@@ -1,5 +1,6 @@
 import pygame
 from constants import *
+from player import Player
 
 BLACK = (0, 0, 0)
 
@@ -9,11 +10,15 @@ def main():
     dt = 0
     print("Starting asteroids!")
     screen = pygame.display.set_mode((SCREEN_HEIGHT, SCREEN_HEIGHT))
+    player_x = SCREEN_WIDTH / 2
+    player_y = SCREEN_HEIGHT / 2
+    player = Player(player_x, player_y)
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
         screen.fill(BLACK)
+        player.draw(screen)
         pygame.display.flip()
         dt = game_clock.tick(60) / 1000
 
